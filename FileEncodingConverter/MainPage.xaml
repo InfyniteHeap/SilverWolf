@@ -39,8 +39,20 @@
                         <ctkcontrols:SettingsExpander Margin="0,0,0,4">
                             <ctkcontrols:SettingsExpander.Header>
                                 <Grid>
-                                    <TextBlock Margin="0,0,0,8" Text="{x:Bind FileName}" />
-                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind FileStatus}" />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Margin="0,0,0,8"
+                                        Text="{x:Bind FileName}" />
+                                    <TextBlock
+                                        Grid.Column="2"
+                                        Margin="8,0,0,0"
+                                        Text="{x:Bind FileStatus}" />
                                 </Grid>
                             </ctkcontrols:SettingsExpander.Header>
                             <ctkcontrols:SettingsExpander.Content>
