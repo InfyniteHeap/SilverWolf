@@ -14,8 +14,8 @@ public static class EncodingConverter
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        var succeededNumber = 0;
-        var failedNumber = 0;
+        var succeededFileNumber = 0;
+        var failedFileNumber = 0;
         var fileStatus = new bool[files.Count];
 
         foreach (var file in files.Select((value, index) => new { value, index }))
@@ -48,20 +48,20 @@ public static class EncodingConverter
                     _ => new UTF8Encoding(false)
                 });
 
-                succeededNumber += 1;
+                succeededFileNumber += 1;
                 fileStatus[file.index] = true;
             }
             else
             {
-                failedNumber += 1;
+                failedFileNumber += 1;
                 fileStatus[file.index] = false;
             }
         }
 
         var result = new ConversionResult
         {
-            SucceededNumber = succeededNumber,
-            FailedNumber = failedNumber,
+            SucceededFileNumber = succeededFileNumber,
+            FailedFileNumber = failedFileNumber,
             FileStatus = fileStatus,
             TargetEncodingName = targetEncoding
         };

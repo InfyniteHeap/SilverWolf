@@ -181,7 +181,14 @@ public sealed partial class MainPage
 
     private void OnConversionCompleteHandler(ConversionResult result)
     {
-        Result.Text = $"Succeeded {result.SucceededNumber} files, failed {result.FailedNumber} files.";
+        var succeededFileNum = result.SucceededFileNumber;
+        var failedFileNum = result.FailedFileNumber;
+
+        var succeededFileNumNoun = succeededFileNum == 1 ? "file" : "files";
+        var failedFileNumNoun = failedFileNum == 1 ? "file" : "files";
+
+        Result.Text =
+            $"Succeeded {succeededFileNum} {succeededFileNumNoun}, failed {result.FailedFileNumber} {failedFileNumNoun}.";
 
         for (var idx = 0; idx < _filesToBeProcessed.Count; idx += 1)
             _filesToBeProcessed[idx] = new FileInfo

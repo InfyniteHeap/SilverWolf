@@ -2,9 +2,9 @@ namespace FileEncodingConverter.Core;
 
 public record struct ConversionResult
 {
-    public required int FailedNumber;
+    public required int FailedFileNumber;
     public required bool[] FileStatus;
-    public required int SucceededNumber;
+    public required int SucceededFileNumber;
     public required string TargetEncodingName;
 }
 
