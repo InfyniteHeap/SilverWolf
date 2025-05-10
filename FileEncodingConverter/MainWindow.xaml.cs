@@ -1,7 +1,7 @@
+using Microsoft.UI.Windowing;
 using Windows.Graphics;
 using Windows.Win32;
 using Windows.Win32.UI.WindowsAndMessaging;
-using Microsoft.UI.Windowing;
 
 namespace FileEncodingConverter;
 
