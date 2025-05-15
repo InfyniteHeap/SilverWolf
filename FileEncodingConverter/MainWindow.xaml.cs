@@ -1,7 +1,6 @@
+using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Windows.Graphics;
-using Windows.Win32;
-using Windows.Win32.UI.WindowsAndMessaging;
 using WinRT.Interop;
 
 namespace FileEncodingConverter;
@@ -14,18 +13,22 @@ public sealed partial class MainWindow
     {
         InitializeComponent();
 
+        WindowHandle = WindowNative.GetWindowHandle(this);
+        WindowId = Win32Interop.GetWindowIdFromWindow(WindowHandle);
+
         SetWindowSizeAndPosition();
         EnableExtendedTitleBar();
-
-        WindowHandle = WindowNative.GetWindowHandle(this);
     }
 
     public static nint WindowHandle { get; private set; }
+    private static WindowId WindowId { get; set; }
 
     private void SetWindowSizeAndPosition()
     {
-        var screenWidth = (double)PInvoke.GetSystemMetrics(SYSTEM_METRICS_INDEX.SM_CXSCREEN);
-        var screenHeight = (double)PInvoke.GetSystemMetrics(SYSTEM_METRICS_INDEX.SM_CYSCREEN);
+        var displayArea = DisplayArea.GetFromWindowId(WindowId, DisplayAreaFallback.Nearest);
+
+        var screenWidth = displayArea.OuterBounds.Width;
+        var screenHeight = displayArea.OuterBounds.Height;
 
         var windowWidth = screenWidth * WindowDimensionScale;
         var windowHeight = screenHeight * WindowDimensionScale;
