@@ -2,6 +2,7 @@ using Microsoft.UI.Windowing;
 using Windows.Graphics;
 using Windows.Win32;
 using Windows.Win32.UI.WindowsAndMessaging;
+using WinRT.Interop;
 
 namespace FileEncodingConverter;
 
@@ -15,7 +16,11 @@ public sealed partial class MainWindow
 
         SetWindowSizeAndPosition();
         EnableExtendedTitleBar();
+
+        WindowHandle = WindowNative.GetWindowHandle(this);
     }
+
+    public static nint WindowHandle { get; private set; }
 
     private void SetWindowSizeAndPosition()
     {

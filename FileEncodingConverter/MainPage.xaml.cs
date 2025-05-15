@@ -28,8 +28,7 @@ public sealed partial class MainPage
             FileTypeFilter = { "*" }
         };
 
-        var hWnd = WindowNative.GetWindowHandle(App.Window);
-        InitializeWithWindow.Initialize(picker, hWnd);
+        InitializeWithWindow.Initialize(picker, MainWindow.WindowHandle);
 
         var files = await picker.PickMultipleFilesAsync();
         var fileNums = files.Count;
@@ -84,8 +83,7 @@ public sealed partial class MainPage
             ViewMode = PickerViewMode.List
         };
 
-        var hWnd = WindowNative.GetWindowHandle(App.Window);
-        InitializeWithWindow.Initialize(picker, hWnd);
+        InitializeWithWindow.Initialize(picker, MainWindow.WindowHandle);
 
         var folder = await picker.PickSingleFolderAsync();
         if (folder is not null)
