@@ -1,9 +1,9 @@
 {
   "profiles": {
-    "FileEncodingConverter (Package)": {
+    "SilverWolf (Package)": {
       "commandName": "MsixPackage"
     },
-    "FileEncodingConverter (Unpackaged)": {
+    "SilverWolf (Unpackaged)": {
       "commandName": "Project"
     }
   }
