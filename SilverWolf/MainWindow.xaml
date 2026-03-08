@@ -13,5 +13,21 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TitleBar
+            x:Name="MainWindowTitleBar"
+            Title="SilverWolf"
+            Grid.Row="0"
+            Height="48">
+            <TitleBar.IconSource>
+                <!--  TODO: Replace this placeholder icon with a real icon  -->
+                <ImageIconSource ImageSource="/Assets/Square150x150Logo.png" />
+            </TitleBar.IconSource>
+        </TitleBar>
+    </Grid>
 </Window>
