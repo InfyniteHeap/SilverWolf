@@ -30,13 +30,6 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
-      # Restore the application to populate the obj folder with RuntimeIdentifiers
-      - name: Restore the application
-        run: dotnet restore $env:Solution_Name -r $env:RuntimeIdentifier
-        env:
-          Configuration: ${{ matrix.configuration }}
-          RuntimeIdentifier: win-${{ matrix.platform }}
-
       # Create the app package by building and packaging the project
       - name: Create the app package
         run: dotnet publish $env:Solution_Name
