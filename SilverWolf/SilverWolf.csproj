@@ -12,7 +12,6 @@
         <WinUISDKReferences>false</WinUISDKReferences>
         <EnableMsixTooling>true</EnableMsixTooling>
         <Nullable>enable</Nullable>
-        <PublishAot Condition="'$(Configuration)' != 'Debug'">true</PublishAot>
     </PropertyGroup>
 
     <ItemGroup>
@@ -53,6 +52,8 @@
 
     <!-- Publish Properties -->
     <PropertyGroup>
+        <PublishAot Condition="'$(Configuration)' == 'Debug'">False</PublishAot>
+        <PublishAot Condition="'$(Configuration)' != 'Debug'">True</PublishAot>
         <PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
         <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
         <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
