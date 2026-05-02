@@ -9,7 +9,7 @@ using WinRT.Interop;
 namespace SilverWolf;
 
 public sealed partial class MainWindow : Window {
-    private const double WindowDimensionScale = 0.6;
+    private const double WindowDimensionScale = 0.75;
 
     private readonly nint _windowHandle;
     private readonly WindowId _windowId;
@@ -27,23 +27,20 @@ public sealed partial class MainWindow : Window {
     private void SetWindowSizeAndPosition() {
         var displayArea = DisplayArea.GetFromWindowId(_windowId, DisplayAreaFallback.Nearest);
 
-        var screenWidth = displayArea.OuterBounds.Width;
-        var screenHeight = displayArea.OuterBounds.Height;
+        var workArea = displayArea.WorkArea;
 
-        var windowWidth = screenWidth * WindowDimensionScale;
-        var windowHeight = screenHeight * WindowDimensionScale;
+        var windowWidth = workArea.Width * WindowDimensionScale;
+        var windowHeight = workArea.Height * WindowDimensionScale;
 
-        var xPosition = (screenWidth - windowWidth) / 2.0;
-        var yPosition = (screenHeight - windowHeight) / 2.0;
+        var xPosition = workArea.X + (workArea.Width - windowWidth) / 2.0;
+        var yPosition = workArea.Y + (workArea.Height - windowHeight) / 2.0;
 
         AppWindow.MoveAndResize(new RectInt32((int)xPosition, (int)yPosition, (int)windowWidth, (int)windowHeight));
     }
 
     private void SetCustomTitleBar() {
         ExtendsContentIntoTitleBar = true;
-        if (ExtendsContentIntoTitleBar) {
-            AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
-        }
+        AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
         SetTitleBar(MainWindowTitleBar);
     }
 }
