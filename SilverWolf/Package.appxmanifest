@@ -2,7 +2,6 @@
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
@@ -12,8 +11,6 @@
     Name="7ad760e8-c6ef-4355-96f5-373c04526573"
     Publisher="CN=InfyniteHeap"
     Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="7ad760e8-c6ef-4355-96f5-373c04526573" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>SilverWolf</DisplayName>
