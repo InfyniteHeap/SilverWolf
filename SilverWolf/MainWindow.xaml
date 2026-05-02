@@ -26,7 +26,7 @@
             Height="48">
             <TitleBar.IconSource>
                 <!--  TODO: Replace this placeholder icon with a real icon  -->
-                <ImageIconSource ImageSource="/Assets/Square150x150Logo.png" />
+                <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
             </TitleBar.IconSource>
         </TitleBar>
     </Grid>
