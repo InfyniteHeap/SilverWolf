@@ -37,8 +37,8 @@
         <ProjectCapability Include="Msix" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
+        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.0.1" />
     </ItemGroup>
 
     <!--
@@ -52,11 +52,6 @@
 
     <!-- Publish Properties -->
     <PropertyGroup>
-        <PublishAot Condition="'$(Configuration)' == 'Debug'">False</PublishAot>
-        <PublishAot Condition="'$(Configuration)' != 'Debug'">True</PublishAot>
-        <PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
-        <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
-        <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
-        <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+        <PublishAot Condition="'$(Configuration)' != 'Debug'">true</PublishAot>
     </PropertyGroup>
 </Project>
